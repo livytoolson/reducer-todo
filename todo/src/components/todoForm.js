@@ -5,7 +5,11 @@ class TodoForm extends React.Component {
         return(
             <form>
                 <div>
-                    <input placeholder="todo..."></input>
+                    <input 
+                        name="item"
+                        type="text" 
+                        placeholder="todo...">   
+                    </input>
                     <button>Add</button>
                 </div>
                 <div>
