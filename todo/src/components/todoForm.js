@@ -6,25 +6,12 @@ const TodoForm = () => {
     console.log(state)
 
     // handleChange = e => {
-    //     this.setState({
-    //         input: e.target.value
-    //     });
+
     // };
 
     // handleSubmit = e => {
     //     e.preventDefault();
-    //     this.setState({
-    //         input: ''
-    //     })
-    // }
-
-    // handleAdd = () => {
-    //     this.props.handleAddItem(this.state.input);
-    // }
-
-    // handleClear = () => {
-    //     this.props.handleClearItem();
-    // }
+    // };
 
     return (
         <form>
@@ -40,6 +27,7 @@ const TodoForm = () => {
             </div>
             <div>
                 <button className="clearBtn">Clear Completed</button>
+                {/* <button className="clearBtn" onClick={() => dispatch( type: 'CLEAR_COMPLETED')}></button> */}
             </div>
         </form>
     );
