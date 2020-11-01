@@ -11,10 +11,8 @@ const App = () => {
         <div className="todo-form">
           <h1>Todo List</h1>
           <TodoForm />
-          {/* <TodoForm handleAddItem={this.handleAddItem}/> */}
         </div>
         <TodoList />
-        {/* <TodoList handleClearItems={this.clearItems} handleToggleItem={this.handleToggleItem} todo={this.state.todo}/> */}
       </div>
     );
   };
