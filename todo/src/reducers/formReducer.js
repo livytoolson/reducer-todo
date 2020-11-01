@@ -1,4 +1,4 @@
-export const initialState = [
+export const initialState = [    
     {
         item: 'Learn about reducers',
         completed: false,
@@ -18,6 +18,18 @@ export const initialState = [
 
 export const reducer = (state, action) => {
     switch(action.type) {
+        case 'ADD_NEW_TODO':
+            return {
+
+            };
+        case 'TOGGLE_COMPLETED':
+            return {
+
+            };
+        case 'CLEAR_COMPLETED':
+            return {
+
+            };
         default:
             return state
     }
