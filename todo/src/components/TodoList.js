@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import Todo from "./Todo";
-import { initialState } from '../reducers/formReducer';
+import { initialState, reducer } from '../reducers/formReducer';
 
 const TodoList = () => {
-  console.log(initialState.todostodos)
+  const [state, dispatch] = useReducer(reducer, initialState);
+  console.log(state.todos)
 
 return (
     <div>
-        {initialState.todos.map(todo => (
+        {state.todos.map(todo => (
         <Todo 
           key={todo.id}
-          name={todo.item} />
+          name={todo.item}
+          onclick={() => dispatch({ type: 'TOGGLE_COMPLETED'})} />
       ))}
     </div>
     );
