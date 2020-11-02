@@ -1,20 +1,31 @@
 import React, { useReducer, useState } from 'react';
 import { initialState, reducer } from '../reducers/formReducer';
 import TodoList from './TodoList';
-import { addTodo, clearTodo, toggleTodo } from '../actions/formActions';
+import { setNewTodo, setClearTodo, setToggle } from '../actions/formActions';
 
 const TodoForm = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
-    const [newTodo, setNewTodo] = useState('')
+    const [inputText, setInputText] = useState('')
+    console.log(state)
 
     const handleChange = e => {
-        setNewTodo(e.target.value)
+        setInputText(e.target.value)
     };
 
-    const handleSubmit = e => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        setNewTodo('')
+        dispatch(setNewTodo(inputText));
+        setInputText('');
     };
+
+    // const handleToggle = () => {
+
+    // }
+
+    const handleClear = (e) => {
+        e.preventDefault();
+        dispatch(setClearTodo());
+    }
 
     return (
         <form onSubmit={handleSubmit}>
@@ -23,21 +34,18 @@ const TodoForm = () => {
                     className="todo-input" 
                     type="text" 
                     name="item" 
-                    value={newTodo}
+                    value={inputText.item}
                     onChange={handleChange}
                     placeholder="todo...">
                 </input>
                 <button 
-                    className="addBtn" 
-                    onClick={() => dispatch(addTodo())}>Add
-                    {/* onClick={() => dispatch({ type: 'ADD', payload: newTodo })} */}
+                    className="addBtn" type="submit">Add
                 </button>
             </div>
             <div>
                 <button 
                     className="clearBtn" 
-                    onClick={() => dispatchEvent(clearTodo())}>Clear Completed
-                    {/* onClick={() => dispatch({ type: 'CLEAR', payload: state})} */}
+                    onClick={handleClear}>Clear Completed
                 </button>
             </div>
             <div>

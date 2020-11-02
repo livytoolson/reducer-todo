@@ -2,14 +2,14 @@ export const ADD = "ADD"
 export const CLEAR = "CLEAR"
 export const TOGGLE = "TOGGLE"
 
-export const addTodo = (input) => {
-    return({type:ADD, payload:input})
+export const setNewTodo = (inputText) => {
+    return({type:ADD, payload: inputText})
 }
 
-export const clearTodo = () => {
+export const setClearTodo = () => {
     return({type:CLEAR})
 }
 
-export const toggleTodo = (id) => {
+export const setToggle = (id) => {
     return({type:TOGGLE, payload:id})
 }

@@ -11,7 +11,6 @@ return (
           name={todo.item}
           completed={todo.completed}
           />
-          // onclick={() => dispatch({ type: 'TOGGLE'})} 
       ))}
     </div>
     );

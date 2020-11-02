@@ -17,7 +17,13 @@ export const initialState = {
             completed: false,
             id: 3456
         }
-    ]
+    ],
+    newTodo:
+        {
+        item: '',
+        completed: false,
+        id: Date.now()
+    }
 }
 
 export const reducer = (state, action) => {
@@ -30,13 +36,16 @@ export const reducer = (state, action) => {
                     {
                         item: action.payload,
                         completed: false,
-                        id: new Date(),
+                        id: Date.now(),
                     }
                 ]
             }
             
         case CLEAR:
-            return action.payload.filter(todo => !todo.completed)
+            return {
+                ...state,
+                todos: state.todos.filter((todo, index) => index !== action.payload)
+            }
 
         case TOGGLE:
             return {
