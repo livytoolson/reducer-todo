@@ -1,14 +1,17 @@
 import React from 'react';
+import Todo from "./Todo";
+import { initialState } from '../reducers/formReducer';
 
-import Todo from './Todo';
-
-const TodoList = props => {
+const TodoList = () => {
+  console.log(initialState.todostodos)
 
 return (
     <div>
-        {/* {props.list.map(item => (
-        <Todo key={item.id} item={item} />
-      ))} */}
+        {initialState.todos.map(todo => (
+        <Todo 
+          key={todo.id}
+          name={todo.item} />
+      ))}
     </div>
     );
 };

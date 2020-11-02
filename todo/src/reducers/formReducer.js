@@ -29,6 +29,7 @@ export const reducer = (state, action) => {
                     id: new Date()
                 }
             ]
+            
         case 'CLEAR_COMPLETED':
             return action.payload.filter(todo => todo.completed === false)
 

@@ -12,7 +12,6 @@ const App = () => {
           <h1>Todo List</h1>
           <TodoForm />
         </div>
-        <TodoList />
       </div>
     );
   };
