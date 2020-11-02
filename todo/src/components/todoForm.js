@@ -6,7 +6,6 @@ import { setNewTodo, setClearTodo, setToggle } from '../actions/formActions';
 const TodoForm = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
     const [inputText, setInputText] = useState('')
-    console.log(state)
 
     const handleChange = e => {
         setInputText(e.target.value)
@@ -18,14 +17,14 @@ const TodoForm = () => {
         setInputText('');
     };
 
-    // const handleToggle = () => {
-
-    // }
+    const toggleItem = (id) => {
+        dispatch(setToggle(id));
+    };
 
     const handleClear = (e) => {
         e.preventDefault();
         dispatch(setClearTodo());
-    }
+    };
 
     return (
         <form onSubmit={handleSubmit}>
@@ -49,7 +48,7 @@ const TodoForm = () => {
                 </button>
             </div>
             <div>
-                <TodoList todos={state.todos}/>
+                <TodoList todos={state.todos} toggleItem={toggleItem}/>
             </div>
         </form>
     );

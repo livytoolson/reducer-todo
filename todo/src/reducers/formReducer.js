@@ -17,13 +17,7 @@ export const initialState = {
             completed: false,
             id: 3456
         }
-    ],
-    newTodo:
-        {
-        item: '',
-        completed: false,
-        id: Date.now()
-    }
+    ]
 }
 
 export const reducer = (state, action) => {
@@ -42,24 +36,18 @@ export const reducer = (state, action) => {
             }
             
         case CLEAR:
-            return {
+            return{
                 ...state,
-                todos: state.todos.filter((todo, index) => index !== action.payload)
-            }
+                todos: state.todos.filter(item => item.completed === false)
+           }
 
         case TOGGLE:
             return {
                 ...state,
-                todos: state.todos.map(todo => {
-                    if (todo.id !== action.payload) {
-                        return todo
-                    }
-                    return  {
-                        ...todo,
-                        completed: !todo.completed
-                    }
-                })
-            }
+                    todos: state.todos.map(item => 
+                    item.id === action.payload ? {...item, completed: !item.completed } : item    
+                    )
+               }
         default:
             return state
     }
