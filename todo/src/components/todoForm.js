@@ -1,10 +1,10 @@
 import React, { useReducer, useState } from 'react';
 import { initialState, reducer } from '../reducers/formReducer';
 import TodoList from './TodoList';
+import { addTodo, clearTodo, toggleTodo } from '../actions/formActions';
 
 const TodoForm = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
-    // console.log(state)
     const [newTodo, setNewTodo] = useState('')
 
     const handleChange = e => {
@@ -29,17 +29,19 @@ const TodoForm = () => {
                 </input>
                 <button 
                     className="addBtn" 
-                    onClick={() => dispatch({ type: 'ADD_NEW_TODO', payload: newTodo })}>Add
+                    onClick={() => dispatch(addTodo())}>Add
+                    {/* onClick={() => dispatch({ type: 'ADD', payload: newTodo })} */}
                 </button>
             </div>
             <div>
                 <button 
                     className="clearBtn" 
-                    onClick={() => dispatch({ type: 'CLEAR_COMPLETED', payload: state})}>Clear Completed
+                    onClick={() => dispatchEvent(clearTodo())}>Clear Completed
+                    {/* onClick={() => dispatch({ type: 'CLEAR', payload: state})} */}
                 </button>
             </div>
             <div>
-                <TodoList />
+                <TodoList todos={state.todos}/>
             </div>
         </form>
     );

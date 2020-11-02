@@ -1,21 +1,15 @@
-import React, { useReducer } from "react";
-import { initialState, reducer } from '../reducers/formReducer';
+import React from "react";
 
+const Todo = (props) => {
 
-const Todo = () => {
-    const [state] = useReducer(reducer, initialState);
-    console.log(state.todos)
-    // return (
-    //     <div className={`name${state.todos.completed ? 'Completed': ''}`}
-    //         style={state.todos.completed ? {textDecoration: 'line-through'} : null}
-    //         onClick={() => dispatch({ type: 'TOGGLE_COMPLETED'})}>
-    //         <button>{state.todos.item}</button>
-    //     </div>
-    // )
+    // const handleClick = () => {
+    //     props.handleToggle(props.key)
+    // }
+
     return (
         <div className="todo-list">
-            <div className={`name${state.todos.completed ? ' completed' : ''}`}>
-                <p className="list-item">{state.todos}</p>
+            <div className={`name${props.completed ? ' completed' : ''}`}>
+                <p className="list-item">{props.name}</p>
              </div>
         </div>
     );

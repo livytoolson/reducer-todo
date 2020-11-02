@@ -1,3 +1,5 @@
+import { ADD, CLEAR, TOGGLE } from './../actions/formActions';
+
 export const initialState = {
     todos: [
         {
@@ -20,7 +22,7 @@ export const initialState = {
 
 export const reducer = (state, action) => {
     switch(action.type) {
-        case 'ADD_NEW_TODO':
+        case ADD:
             return {
                 ...state,
                 todos: [
@@ -33,10 +35,10 @@ export const reducer = (state, action) => {
                 ]
             }
             
-        case 'CLEAR_COMPLETED':
+        case CLEAR:
             return action.payload.filter(todo => !todo.completed)
 
-        case 'TOGGLE_COMPLETED':
+        case TOGGLE:
             return {
                 ...state,
                 todos: state.todos.map(todo => {
